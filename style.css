@@ -1,0 +1,244 @@
+:root {
+  --intel-blue: #0071c5;
+  --intel-dark: #07111f;
+  --intel-surface: #0f172a;
+  --intel-card: #111d31;
+  --intel-text: #eff6ff;
+  --intel-muted: #dbe7f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--intel-text);
+  background:
+    radial-gradient(circle at top, rgb(0, 145, 255), transparent 50%),
+    linear-gradient(180deg, #030712 0%, #07111f 45%, #020617 100%);
+  line-height: 1.6;
+}
+
+.hero {
+  padding: 32px 18px 12px;
+}
+
+.hero-panel {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px;
+  border: 1px solid rgba(158, 208, 255, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(145deg, rgba(6, 11, 21, 0.98), rgba(18, 35, 61, 0.96)),
+    linear-gradient(135deg, rgba(0, 113, 197, 0.22), transparent 35%);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(158, 208, 255, 0.08);
+}
+
+.hero-logo {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  font-size: 0.82rem;
+  color: #9ed0ff;
+  margin: 0 0 10px;
+}
+
+.hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  line-height: 1.05;
+  max-width: 700px;
+}
+
+.hero-copy {
+  max-width: 700px;
+  font-size: 1.05rem;
+  color: var(--intel-muted);
+}
+
+.timeline-strip {
+  /* Use flexbox so all cards stay in one horizontal row. */
+  display: flex;
+  gap: 18px;
+  margin-top: 40px;
+  /* Limit the visible width so only 4 cards fit at a time. */
+  max-width: 1180px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 18px 24px;
+  margin: 0 auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+/* Make the scroll area feel smoother on touch screens and mouse wheels. */
+.timeline-strip::-webkit-scrollbar {
+  height: 10px;
+}
+
+.timeline-strip::-webkit-scrollbar-thumb {
+  background: rgba(158, 208, 255, 0.35);
+  border-radius: 999px;
+}
+
+.timeline-card {
+  /* Each card keeps its own width, and the container is limited so 4 cards fit in view. */
+  flex: 0 0 calc((1180px - 54px) / 4);
+  min-width: 260px;
+  scroll-snap-align: start;
+  background: linear-gradient(180deg, rgba(17, 29, 49, 0.98), rgba(10, 18, 32, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: visible;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+  transform: translateY(0) scale(1);
+  z-index: 1;
+}
+
+.timeline-card:hover,
+.timeline-card:focus-within {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(158, 208, 255, 0.55);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(158, 208, 255, 0.12),
+    0 0 18px rgba(0, 113, 197, 0.18);
+  background: linear-gradient(180deg, rgba(21, 35, 58, 0.98), rgba(12, 21, 35, 0.98));
+  z-index: 3;
+}
+
+.timeline-card h2 {
+  margin: 0 0 6px;
+  color: #9ed0ff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.timeline-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.milestone-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(158, 208, 255, 0.18);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.timeline-card:hover .milestone-image,
+.timeline-card:focus-within .milestone-image {
+  transform: scale(1.03);
+  filter: saturate(1.08);
+}
+
+.milestone-details {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(7, 17, 31, 0.05), rgba(7, 17, 31, 0.88));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.timeline-card:hover .milestone-details,
+.timeline-card:focus-within .milestone-details {
+  opacity: 1;
+}
+
+.milestone-details p {
+  background: rgba(7, 17, 31, 0.78);
+  border: 1px solid rgba(158, 208, 255, 0.18);
+  border-radius: 12px;
+  padding: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.timeline-card p {
+  margin: 0;
+  color: var(--intel-muted);
+  font-size: 0.98rem;
+}
+
+.timeline-note {
+  text-align: center;
+  color: #dce9fb;
+  font-size: 0.95rem;
+  padding: 0 18px 32px;
+}
+
+@media (max-width: 900px) {
+  .timeline-card {
+    flex-basis: 260px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 18px 12px 8px;
+  }
+
+  .hero-panel {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .hero-logo {
+    width: 130px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+  }
+  .timeline-strip {
+    flex-direction: column;
+    overflow-x: visible;
+    overflow-y: visible;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .timeline-card {
+    flex: none;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .timeline-note {
+    display: none; /* No need to tell users to scroll horizontally */
+  }
+}
