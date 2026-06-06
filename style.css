@@ -3,8 +3,8 @@
   --intel-dark: #07111f;
   --intel-surface: #0f172a;
   --intel-card: #111d31;
-  --intel-text: #eff6ff;
-  --intel-muted: #dbe7f7;
+  --intel-text: #ffffff;
+  --intel-muted: #f0f4ff;
 }
 
 * {
@@ -51,7 +51,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.35em;
   font-size: 0.82rem;
-  color: #9ed0ff;
+  color: #b8dcff;
   margin: 0 0 10px;
 }
 
@@ -60,6 +60,7 @@ body {
   font-size: clamp(2.4rem, 7vw, 4.4rem);
   line-height: 1.05;
   max-width: 700px;
+  color: #f0f4ff;
 }
 
 .hero-copy {
@@ -131,7 +132,7 @@ body {
 
 .timeline-card h2 {
   margin: 0 0 6px;
-  color: #9ed0ff;
+  color: #b8dcff;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
@@ -192,7 +193,7 @@ body {
 
 .timeline-note {
   text-align: center;
-  color: #dce9fb;
+  color: #f0f4ff;
   font-size: 0.95rem;
   padding: 0 18px 32px;
 }
@@ -241,4 +242,260 @@ body {
   .timeline-note {
     display: none; /* No need to tell users to scroll horizontally */
   }
+}
+
+.carousel {
+    width: 60%;
+    margin: 40px auto;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(158, 208, 255, 0.18);
+}
+
+.carousel img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-fade .carousel-item {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.6s;
+}
+
+.carousel-fade .carousel-item.active {
+  opacity: 1;
+}
+
+/* Carousel Caption Styling */
+.carousel-caption {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.95) 100%);
+  bottom: 0;
+  padding: 30px 20px 20px;
+  text-align: center;
+}
+
+.carousel-caption h5 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+  color: #d9e8ff;
+  font-size: 1rem;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  bottom: 15px;
+  z-index: 15;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.carousel-indicators button.active {
+  background-color: #0071c5;
+  border-color: #0071c5;
+  width: 14px;
+  height: 14px;
+}
+
+.carousel-indicators button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 113, 197, 0.7);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 113, 197, 0.95);
+  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.4);
+}
+
+.carousel-control-prev {
+  left: 15px;
+}
+
+.carousel-control-next {
+  right: 15px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: brightness(1.2);
+}
+
+/* 3-Column Content Section Styling */
+.content-section h2 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-header {
+  color: #0071c5;
+  font-size: 1.6rem;
+}
+
+.content-section p {
+  color: #f0f4ff;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.content-section .btn-primary {
+  background-color: #0071c5;
+  border-color: #0071c5;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 10px 24px;
+  transition: all 0.3s ease;
+}
+
+.content-section .btn-primary:hover {
+  background-color: #0059a6;
+  border-color: #0059a6;
+  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.3);
+  transform: translateY(-2px);
+}
+
+.content-section .btn-primary:focus {
+  outline: 2px solid #b8dcff;
+  outline-offset: 2px;
+}
+
+/* Subscription Section Styling */
+.subscription-section {
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.subscription-card {
+  background: rgba(3, 7, 18, 0.95);
+  border: 1px solid rgba(158, 208, 255, 0.18);
+}
+
+.subscription-section h2,
+.subscription-card .form-label {
+  color: #f8fbff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.subscription-copy {
+  color: #d9e8ff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.subscription-card .form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.subscription-card .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.subscription-card .form-control:focus {
+  border-color: rgba(0, 113, 197, 0.8);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 0.2rem rgba(0, 113, 197, 0.18);
+  color: #ffffff;
+}
+
+/* Footer Styling */
+.footer {
+  background: rgba(7, 17, 31, 0.95);
+  border-top: 1px solid rgba(158, 208, 255, 0.18);
+  color: #f0f4ff;
+  margin-top: 60px;
+}
+
+.footer-heading {
+  color: #f8fbff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-text {
+  color: #d9e8ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #d9e8ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #0071c5;
+}
+
+.footer-link-text {
+  color: #d9e8ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link-text:hover {
+  color: #0071c5;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(158, 208, 255, 0.12);
+  padding-top: 20px;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: #b8dcff;
+  font-size: 0.9rem;
+  margin: 0;
 }
